@@ -1,13 +1,12 @@
---Settings--
 local ESP = {
     Enabled = false,
-    Boxes = true,
+    Boxes = false,
     BoxShift = CFrame.new(0,-1.5,0),
 	BoxSize = Vector3.new(4,6,0),
-    Color = Color3.fromRGB(255, 170, 0),
+    Color = Color3.fromRGB(134, 142, 255),
     FaceCamera = false,
-    Names = true,
-    TeamColor = true,
+    Names = false,
+    TeamColor = false,
     Thickness = 2,
     AttachShift = 1,
     TeamMates = true,
@@ -16,8 +15,6 @@ local ESP = {
     Objects = setmetatable({}, {__mode="kv"}),
     Overrides = {}
 }
-
---Declarations--
 local cam = workspace.CurrentCamera
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
@@ -35,7 +32,7 @@ local function Draw(obj, props)
 		new[i] = v
 	end
 	return new
-end
+end 
 
 function ESP:GetTeam(p)
 	local ov = self.Overrides.GetTeam
@@ -110,7 +107,7 @@ function ESP:AddObjectListener(parent, options)
                     --TODO: add a better way of passing options
                     if options.OnAdded then
                         coroutine.wrap(options.OnAdded)(box)
-                    end
+                    end 
                 end
             end
         end
